@@ -1,0 +1,381 @@
+﻿@page "/"
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medical Admin Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+  />
+  <style>
+    /* Base Typography & Colors */
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7f9;
+      color: #333;
+    }
+    /* Sidebar styling: Inspired by Telerik UI medical design */
+    .sidebar {
+      width: 260px;
+      background: linear-gradient(180deg, #55BDDF 0%, #2b495c 100%);
+      color: #fff;
+      min-height: 100vh;
+      padding-top: 20px;
+    }
+    .sidebar h4 {
+      padding: 20px;
+      text-align: center;
+      font-size: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .sidebar .nav-link {
+      color: #fff;
+      padding: 15px 20px;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .sidebar .nav-link:hover,
+    .sidebar .nav-link.active {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    /* Top Navbar */
+    .top-navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .top-navbar .navbar-brand {
+      font-weight: 600;
+      color: #005f73;
+    }
+    .top-navbar .nav-link {
+      color: #005f73;
+    }
+    /* Main content area */
+    .main-content {
+      padding: 30px;
+    }
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      background-color: #fff;
+    }
+    .card-header {
+      background-color: #fff;
+      border-bottom: none;
+      font-weight: 600;
+      color: #005f73;
+      border-bottom: 1px solid #eee;
+    }
+    .chart-placeholder {
+      height: 300px;
+      background: #e9ecef;
+      border: 2px dashed #ccc;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-style: italic;
+    }
+    /* Utility classes for content sections */
+    .content-section {
+      display: none;
+    }
+    .content-section.active {
+      display: block;
+    }
+    /* Responsive adjustments */
+    @@media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <h4>EI Admin</h4>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <span class="nav-link active" data-target="dashboard">
+            <i class="bi bi-speedometer2 me-2"></i> Dashboard
+          </span>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" data-target="patients">
+            <i class="bi bi-people me-2"></i> Patients
+          </span>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" data-target="appointments">
+            <i class="bi bi-calendar-check me-2"></i> Appointments
+          </span>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" data-target="reports">
+            <i class="bi bi-file-earmark-bar-graph me-2"></i> Reports
+          </span>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" data-target="settings">
+            <i class="bi bi-gear me-2"></i> Settings
+          </span>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="flex-grow-1">
+      <!-- Top Navbar -->
+      <nav class="navbar top-navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Medical Dashboard</a>
+          <div class="d-flex align-items-center">
+            <a href="#" class="nav-link"><i class="bi bi-bell"></i></a>
+            <div class="dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <img
+                  src="https://via.placeholder.com/40"
+                  class="rounded-circle"
+                  alt="Profile"
+                />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Content Sections -->
+      <div class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Appointments Today</h5>
+                  <p class="display-6">24</p>
+                  <p class="text-success">+5% since yesterday</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">New Patients</h5>
+                  <p class="display-6">12</p>
+                  <p class="text-success">+10% this week</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Pending Approvals</h5>
+                  <p class="display-6">3</p>
+                  <p class="text-danger">-2 from yesterday</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">Patient Visits Over Time</div>
+            <div class="card-body">
+              <div class="chart-placeholder">
+                Chart Placeholder
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Patients Section -->
+        <section id="patients" class="content-section">
+          <div class="card">
+            <div class="card-header">Patient List</div>
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Condition</th>
+                    <th>Last Visit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>P001</td>
+                    <td>John Doe</td>
+                    <td>45</td>
+                    <td>Hypertension</td>
+                    <td>2025-02-10</td>
+                  </tr>
+                  <tr>
+                    <td>P002</td>
+                    <td>Jane Smith</td>
+                    <td>37</td>
+                    <td>Diabetes</td>
+                    <td>2025-02-08</td>
+                  </tr>
+                  <tr>
+                    <td>P003</td>
+                    <td>Sam Wilson</td>
+                    <td>52</td>
+                    <td>Arthritis</td>
+                    <td>2025-02-07</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Appointments Section -->
+        <section id="appointments" class="content-section">
+          <div class="card">
+            <div class="card-header">Today's Appointments</div>
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Patient</th>
+                    <th>Doctor</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>09:00 AM</td>
+                    <td>John Doe</td>
+                    <td>Dr. Adams</td>
+                    <td>
+                      <span class="badge bg-success">Confirmed</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>10:30 AM</td>
+                    <td>Jane Smith</td>
+                    <td>Dr. Baker</td>
+                    <td>
+                      <span class="badge bg-warning">Pending</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>11:15 AM</td>
+                    <td>Sam Wilson</td>
+                    <td>Dr. Carter</td>
+                    <td>
+                      <span class="badge bg-danger">Cancelled</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="content-section">
+          <div class="card">
+            <div class="card-header">Monthly Reports</div>
+            <div class="card-body">
+              <div class="chart-placeholder">
+                Report Chart Placeholder
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="content-section">
+          <div class="card">
+            <div class="card-header">Settings</div>
+            <div class="card-body">
+              <form>
+                <div class="mb-3">
+                  <label for="adminName" class="form-label">Admin Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="adminName"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="adminEmail" class="form-label">Email address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="adminEmail"
+                    placeholder="Enter email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="adminPassword" class="form-label">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="adminPassword"
+                    placeholder="Password"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Save Changes
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for navigation -->
+  <script>
+    // Navigation: Toggle active section on sidebar click
+    const navLinks = document.querySelectorAll('.sidebar .nav-link');
+    const sections = document.querySelectorAll('.content-section');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        // Remove active class from all links
+        navLinks.forEach(l => l.classList.remove('active'));
+        // Hide all sections
+        sections.forEach(section => section.classList.remove('active'));
+        // Activate the clicked link and its corresponding section
+        this.classList.add('active');
+        const target = this.getAttribute('data-target');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+  <!-- Bootstrap Bundle JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
+</html>

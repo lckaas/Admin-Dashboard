@@ -1,0 +1,35 @@
+﻿@page "/dashboard/tickets"
+@layout DashboardLayout
+
+<h2>Tickets</h2>
+<div class="card shadow-sm bg-opacity-card p-3">
+    <p>Manage all customer support tickets here. Provide searching, sorting, and a detail view.</p>
+    <!-- Placeholder table or list -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ticket ID</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Opened</th>
+                <th>Last Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>VID-9999</td>
+                <td>Payment Issue</td>
+                <td><span class="badge bg-danger">Open</span></td>
+                <td>Feb 3, 2025</td>
+                <td>Feb 5, 2025</td>
+            </tr>
+            <tr>
+                <td>VID-8888</td>
+                <td>Technical Question</td>
+                <td><span class="badge bg-info">In Progress</span></td>
+                <td>Feb 1, 2025</td>
+                <td>Feb 4, 2025</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,65 @@
+﻿@page "/dashboard/home"
+@layout DashboardLayout
+
+<div class="row">
+    <div class="col-12 col-md-6 mb-4">
+        <div class="card shadow-sm bg-opacity-card">
+            <div class="card-body">
+                <h5 class="card-title">Weekly Sales</h5>
+                <p class="card-text display-4">$15,000</p>
+                <p class="text-success">↑ 12% from last week</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 mb-4">
+        <div class="card shadow-sm bg-opacity-card">
+            <div class="card-body">
+                <h5 class="card-title">Visitors Online</h5>
+                <p class="card-text display-4">95,741</p>
+                <p class="text-danger">↓ 5% from last week</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Example Chart Placeholder -->
+<div class="card shadow-sm bg-opacity-card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">Visit and Sales Statistics</h5>
+        <p>Here you can embed a chart using your favorite Blazor chart library (Chart.js, Blazorise Charts, etc.).</p>
+        <!-- Placeholder for a chart -->
+        <div class="chart-placeholder" style="height:300px; background-color:#e9ecef;"></div>
+    </div>
+</div>
+
+<!-- Recent Tickets or other data -->
+<div class="card shadow-sm bg-opacity-card">
+    <div class="card-body">
+        <h5 class="card-title">Recent Tickets</h5>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Assignee</th>
+                    <th>Subject</th>
+                    <th>Date</th>
+                    <th>Ticket ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>David Grey</td>
+                    <td>Account Issue</td>
+                    <td>Oct 5, 2023</td>
+                    <td>VID-1234</td>
+                </tr>
+                <tr>
+                    <td>Jane Doe</td>
+                    <td>Password Reset</td>
+                    <td>Oct 4, 2023</td>
+                    <td>VID-5678</td>
+                </tr>
+                <!-- More rows here -->
+            </tbody>
+        </table>
+    </div>
+</div>

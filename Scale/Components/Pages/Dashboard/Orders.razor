@@ -1,0 +1,35 @@
+﻿@page "/dashboard/orders"
+@layout DashboardLayout
+
+<h2>Orders</h2>
+<div class="card shadow-sm bg-opacity-card p-3">
+    <p>This page can list all your orders in a table, provide filtering and sorting, etc.</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order #</th>
+                <th>Customer</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Sample data -->
+            <tr>
+                <td>1001</td>
+                <td>John Smith</td>
+                <td><span class="badge bg-success">Completed</span></td>
+                <td>$120.00</td>
+                <td>Feb 1, 2025</td>
+            </tr>
+            <tr>
+                <td>1002</td>
+                <td>Sarah Johnson</td>
+                <td><span class="badge bg-warning">Pending</span></td>
+                <td>$200.00</td>
+                <td>Feb 2, 2025</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

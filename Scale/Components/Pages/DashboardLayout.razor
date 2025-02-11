@@ -1,0 +1,39 @@
+﻿@inherits LayoutComponentBase
+
+@* 
+   This layout is used specifically for the dashboard pages.
+   It includes the sidebar, the top navbar, and a placeholder 
+   for child content in the main area.
+*@
+<div class="@ThemeClass">
+    <div class="d-flex">
+        <!-- Side Navigation -->
+        <DashboardNavMenu 
+            IsDarkMode="@IsDarkMode" 
+            OnToggleTheme="ToggleTheme" />
+
+        <!-- Main Content Area -->
+        <div class="main-content flex-grow-1">
+            <!-- Top Navbar -->
+            <NavBar 
+                IsDarkMode="@IsDarkMode" 
+                OnToggleTheme="ToggleTheme" />
+
+            <div class="p-4 dashboard-content">
+                @Body
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool IsDarkMode { get; set; } = false;
+
+    // A CSS class that toggles light/dark backgrounds
+    private string ThemeClass => IsDarkMode ? "dark-mode" : "light-mode";
+
+    private void ToggleTheme()
+    {
+        IsDarkMode = !IsDarkMode;
+    }
+}

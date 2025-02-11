@@ -1,0 +1,83 @@
+.light-mode {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.dark-mode {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+
+/* Cards and containers with light opacity backgrounds */
+.bg-opacity-card {
+    background-color: rgba(255, 255, 255, 0.7); /* for light mode, semi-transparent white */
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* In dark mode, override the background for .bg-opacity-card to be more suitable */
+.dark-mode .bg-opacity-card {
+    background-color: rgba(33, 37, 41, 0.7); /* semi-transparent dark */
+    color: #f8f9fa;
+}
+
+/* Sidebar styling */
+.dashboard-nav {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+    .dashboard-nav .nav-link {
+        color: #343a40;
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+.dark-mode .dashboard-nav .nav-link {
+    color: #f8f9fa;
+}
+
+.dashboard-nav .nav-link i {
+    margin-right: 0.5rem;
+}
+
+.dashboard-nav .nav-link.active {
+    background-color: #e9ecef;
+    border-left: 4px solid #6f42c1;
+}
+
+.dark-mode .dashboard-nav .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-left: 4px solid #a569bd;
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    min-height: 100vh;
+}
+
+.dashboard-content {
+    padding: 2rem;
+}
+
+/* Chart placeholder style */
+.chart-placeholder {
+    border-radius: 8px;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: #777;
+}
+
+/* Dark mode override for chart placeholder */
+.dark-mode .chart-placeholder {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    border-color: #666;
+}

@@ -1,0 +1,39 @@
+﻿@code {
+    [Parameter]
+    public bool IsDarkMode { get; set; }
+
+    [Parameter]
+    public EventCallback OnToggleTheme { get; set; }
+}
+
+<nav class="dashboard-nav bg-light shadow" style="min-width: 250px;">
+    <div class="nav-menu pt-4">
+        <ul class="list-unstyled">
+            <li>
+                <NavLink class="nav-link" href="/dashboard/home" Match="NavLinkMatch.All">
+                    <i class="bi bi-speedometer2"></i> Dashboard
+                </NavLink>
+            </li>
+            <li>
+                <NavLink class="nav-link" href="/dashboard/orders">
+                    <i class="bi bi-cart4"></i> Orders
+                </NavLink>
+            </li>
+            <li>
+                <NavLink class="nav-link" href="/dashboard/statistics">
+                    <i class="bi bi-bar-chart"></i> Statistics
+                </NavLink>
+            </li>
+            <li>
+                <NavLink class="nav-link" href="/dashboard/tickets">
+                    <i class="bi bi-card-text"></i> Tickets
+                </NavLink>
+            </li>
+            <li>
+                <NavLink class="nav-link" href="/dashboard/settings">
+                    <i class="bi bi-gear"></i> Settings
+                </NavLink>
+            </li>
+        </ul>
+    </div>
+</nav>
